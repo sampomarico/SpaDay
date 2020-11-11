@@ -44,6 +44,7 @@ namespace SpaDay.Controllers
         {
             ViewBag.name = name;
             ViewBag.skintype = skintype;
+            ViewBag.manipedi = manipedi;
             List<string> facials = new List<string>()
             {
                 "Microdermabrasion", "Hydrofacial", "Rejuvenating", "Enzyme Peel"
