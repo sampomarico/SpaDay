@@ -16,10 +16,13 @@
 <div id="servicesMenu">
 
     <h5>Facial Treatments</h5>
-    <p>Your //TODO: pass the skintype value in here// skin type is best suited to the follow facial types:</p>
+    <p>Skintype: @ViewBag.skintype. Appropriate facials for this skintype:</p>
     
     <ul>
-        //TODO: iterate through appropriate facial treatments
+        @foreach (String facial in ViewBag.appropriateFacials)
+        {
+            <li>@facial</li>
+        }
     </ul>
 
     <h5>Nail Services</h5>
