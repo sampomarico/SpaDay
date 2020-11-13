@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SpaDay.Models;
 
 namespace SpaDay.Controllers
 {
@@ -16,6 +17,23 @@ namespace SpaDay.Controllers
         public IActionResult Add()
         {
             return View();
+        }
+
+        [HttpPost("/user")]
+        public IActionResult SubmitAddUserForm(User newUser, string verify)
+        {
+            if(newUser.Password == verify)
+            {
+                ViewBag.username = newUser.Username;
+                return View("Index");
+            }
+            else
+            {
+                ViewBag.error = "Passwords do not match";
+                ViewBag.username = newUser.Username;
+                ViewBag.email = newUser.Email;
+                return View("Add");
+            }
         }
     }
 }
